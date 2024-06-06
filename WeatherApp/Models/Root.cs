@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using static System.Net.WebRequestMethods;
 
 namespace WeatherApp.Models;
 
@@ -48,6 +49,7 @@ public class List
 public class Main
 {
     public double temp { get; set; }
+    public double roundedTemp => Math.Round(temp);
     public double feels_like { get; set; }
     public double temp_min { get; set; }
     public double temp_max { get; set; }
@@ -83,6 +85,10 @@ public class Weather
     public string main { get; set; }
     public string description { get; set; }
     public string icon { get; set; }
+    
+    //Default icon from openweathermap.org
+    //public string fullIconUrl => string.Format("https://openweathermap.org/img/wn/{0}@2x.png", icon);
+    public string customIcon => string.Format("icon_{0}.png", icon);
 }
 
 public class Wind

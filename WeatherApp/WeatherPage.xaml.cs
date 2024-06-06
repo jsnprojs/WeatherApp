@@ -14,11 +14,14 @@ public partial class WeatherPage : ContentPage
     {
         base.OnAppearing();
 
-        var result = await ApiService.GetWeatherByCity("Elk Grove");
+        var result = await ApiService.GetWeatherByCity("elk grove");
 
         LblCity.Text = result.city.name;
         LblWeatherDescription.Text = result.list[0].weather[0].description;
 
-        LblTemperature.Text = result.list[0].main.temp + "°C";
+        LblTemperature.Text = result.list[0].main.roundedTemp + "°C";
+        LblHumidty.Text = result.list[0].main.humidity + "%";
+        LblWind.Text = result.list[0].wind.speed + "km/h";
+        ImgWeatherIcon.Source = result.list[0].weather[0].customIcon;
     }
 }

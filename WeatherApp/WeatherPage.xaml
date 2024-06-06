@@ -31,8 +31,7 @@
                 x:Name="LblCity"
                 FontSize="40"
                 HorizontalOptions="Center"
-                TextColor="Gray" 
-                />
+                TextColor="Gray" />
             <Label
                 x:Name="LblWeatherDescription"
                 FontSize="Medium"
@@ -44,7 +43,6 @@
             x:Name="ImgWeatherIcon"
             Grid.Row="2"
             HeightRequest="300"
-            Source="icon_01n.png"
             VerticalOptions="Start"
             WidthRequest="300" />
 
@@ -66,8 +64,7 @@
                 x:Name="LblHumidty"
                 Grid.Row="1"
                 Grid.Column="0"
-                HorizontalOptions="Center"
-                Text="88" />
+                HorizontalOptions="Center" />
             <Label
                 x:Name="LblTemperature"
                 Grid.Row="0"
@@ -75,8 +72,7 @@
                 Grid.Column="1"
                 FontAttributes="Bold"
                 FontSize="40"
-                HorizontalOptions="Center"
-                Text="25" />
+                HorizontalOptions="Center" />
 
             <Image
                 Grid.Row="0"
@@ -89,8 +85,7 @@
                 x:Name="LblWind"
                 Grid.Row="1"
                 Grid.Column="2"
-                HorizontalOptions="Center"
-                Text="88" />
+                HorizontalOptions="Center" />
         </Grid>
 
         <CollectionView

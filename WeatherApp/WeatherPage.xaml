@@ -31,13 +31,12 @@
                 x:Name="LblCity"
                 FontSize="40"
                 HorizontalOptions="Center"
-                Text="Chicago"
-                TextColor="Gray" />
+                TextColor="Gray" 
+                />
             <Label
                 x:Name="LblWeatherDescription"
                 FontSize="Medium"
                 HorizontalOptions="Center"
-                Text="clear sky"
                 TextColor="SlateGray" />
         </StackLayout>
 
@@ -94,5 +93,36 @@
                 Text="88" />
         </Grid>
 
+        <CollectionView
+            x:Name="CvWeather"
+            Grid.Row="4"
+            HeightRequest="100">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Grid.Row="4" RowDefinitions="Auto,Auto,Auto">
+
+                        <Image
+                            Grid.Row="0"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Start"
+                            WidthRequest="50" />
+                        <Label
+                            Grid.Row="1"
+                            FontSize="Large"
+                            HorizontalOptions="Center" />
+                        <Label
+                            Grid.Row="2"
+                            FontSize="Small"
+                            HorizontalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
     </Grid>
 </ContentPage>

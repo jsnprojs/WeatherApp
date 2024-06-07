@@ -104,16 +104,19 @@
                             Grid.Row="0"
                             HeightRequest="50"
                             HorizontalOptions="Center"
+                            Source="{Binding weather[0].customIcon}"
                             VerticalOptions="Start"
                             WidthRequest="50" />
                         <Label
                             Grid.Row="1"
                             FontSize="Large"
-                            HorizontalOptions="Center" />
+                            HorizontalOptions="Center"
+                            Text="{Binding main.roundedTemp}" />
                         <Label
                             Grid.Row="2"
                             FontSize="Small"
-                            HorizontalOptions="Center" />
+                            HorizontalOptions="Center"
+                            Text="{Binding dateTime}" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

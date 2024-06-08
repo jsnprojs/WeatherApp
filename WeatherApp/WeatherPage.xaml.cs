@@ -17,21 +17,7 @@ public partial class WeatherPage : ContentPage
     {
         base.OnAppearing();
         await GetCurrentLocation();
-        var result = await ApiService.GetWeather(latitude, longtitude);
-
-        foreach (var item in result.list)
-        {
-            WeatherList.Add(item);
-        }
-        CvWeather.ItemsSource = WeatherList;
-        
-        LblCity.Text = result.city.name;
-        LblWeatherDescription.Text = result.list[0].weather[0].description;
-
-        LblTemperature.Text = result.list[0].main.roundedTemp + "°C";
-        LblHumidty.Text = result.list[0].main.humidity + "%";
-        LblWind.Text = result.list[0].wind.speed + "km/h";
-        ImgWeatherIcon.Source = result.list[0].weather[0].customIcon;
+        await GetWeatherDataByLocation(latitude, longtitude);
     }
 
     public async Task GetCurrentLocation()
@@ -42,5 +28,30 @@ public partial class WeatherPage : ContentPage
             latitude   = location.Latitude;
             longtitude = location.Longitude;
         }
+    }
+
+    private async void TapLocation_Tapped(object sender, TappedEventArgs e)
+    {
+        await GetCurrentLocation();
+        await GetWeatherDataByLocation(latitude, longtitude);
+    }
+
+    public async Task GetWeatherDataByLocation(double latitude, double longitude)
+    {
+        var result = await ApiService.GetWeather(latitude, longtitude);
+
+        foreach (var item in result.list)
+        {
+            WeatherList.Add(item);
+        }
+        CvWeather.ItemsSource = WeatherList;
+
+        LblCity.Text = result.city.name;
+        LblWeatherDescription.Text = result.list[0].weather[0].description;
+
+        LblTemperature.Text = result.list[0].main.roundedTemp + "°C";
+        LblHumidty.Text = result.list[0].main.humidity + "%";
+        LblWind.Text = result.list[0].wind.speed + "km/h";
+        ImgWeatherIcon.Source = result.list[0].weather[0].customIcon;
     }
 }

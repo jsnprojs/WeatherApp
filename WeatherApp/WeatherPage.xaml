@@ -16,7 +16,9 @@
                 CornerRadius="35"
                 HasShadow="True">
                 <Label FontSize="Default" Text="Your Location" />
-
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapLocation" Tapped="TapLocation_Tapped"/>
+                </Frame.GestureRecognizers>
 
             </Frame>
             <ImageButton

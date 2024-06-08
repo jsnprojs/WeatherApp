@@ -18,7 +18,8 @@ public partial class WeatherPage : ContentPage
 
         var result = await ApiService.GetWeatherByCity("elk grove");
 
-        foreach (var item in result.list) { 
+        foreach (var item in result.list)
+        {
             WeatherList.Add(item);
         }
         CvWeather.ItemsSource = WeatherList;
@@ -31,6 +32,6 @@ public partial class WeatherPage : ContentPage
         LblWind.Text = result.list[0].wind.speed + "km/h";
         ImgWeatherIcon.Source = result.list[0].weather[0].customIcon;
 
-        
+
     }
 }

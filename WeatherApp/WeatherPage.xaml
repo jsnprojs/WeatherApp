@@ -91,7 +91,7 @@
         <CollectionView
             x:Name="CvWeather"
             Grid.Row="4"
-            HeightRequest="100">
+            HeightRequest="120">
 
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />

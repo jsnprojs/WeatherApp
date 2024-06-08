@@ -5,7 +5,8 @@ namespace WeatherApp;
 public partial class WeatherPage : ContentPage
 {
     public List<Models.List> WeatherList;
-
+    private double latitude;
+    private double longtitude;
 	public WeatherPage()
 	{
 		InitializeComponent();
@@ -15,15 +16,15 @@ public partial class WeatherPage : ContentPage
     protected async override void OnAppearing()
     {
         base.OnAppearing();
-
-        var result = await ApiService.GetWeatherByCity("elk grove");
+        await GetCurrentLocation();
+        var result = await ApiService.GetWeather(latitude, longtitude);
 
         foreach (var item in result.list)
         {
             WeatherList.Add(item);
         }
         CvWeather.ItemsSource = WeatherList;
-
+        
         LblCity.Text = result.city.name;
         LblWeatherDescription.Text = result.list[0].weather[0].description;
 
@@ -31,7 +32,15 @@ public partial class WeatherPage : ContentPage
         LblHumidty.Text = result.list[0].main.humidity + "%";
         LblWind.Text = result.list[0].wind.speed + "km/h";
         ImgWeatherIcon.Source = result.list[0].weather[0].customIcon;
+    }
 
-
+    public async Task GetCurrentLocation()
+    {
+       Location? location = await Geolocation.GetLocationAsync();
+        if(location != null)
+        {
+            latitude   = location.Latitude;
+            longtitude = location.Longitude;
+        }
     }
 }

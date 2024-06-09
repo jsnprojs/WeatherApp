@@ -45,9 +45,9 @@
         <Image
             x:Name="ImgWeatherIcon"
             Grid.Row="2"
-            HeightRequest="300"
+            HeightRequest="200"
             VerticalOptions="Start"
-            WidthRequest="300" />
+            WidthRequest="200" />
 
         <Grid
             Grid.Row="3"

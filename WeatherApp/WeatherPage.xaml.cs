@@ -22,10 +22,19 @@ public partial class WeatherPage : ContentPage
 
     public async Task GetCurrentLocation()
     {
-       Location? location = await Geolocation.GetLocationAsync();
-        if(location != null)
+       
+        Location? location = await Geolocation.GetLastKnownLocationAsync();
+        if (location != null)
         {
-            latitude   = location.Latitude;
+            // Use the cached location
+            latitude = location.Latitude;
+            longtitude = location.Longitude;
+        }
+        else
+        {
+            // Get the current location
+            location = await Geolocation.GetLocationAsync();
+            latitude = location.Latitude;
             longtitude = location.Longitude;
         }
     }

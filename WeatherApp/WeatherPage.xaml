@@ -17,11 +17,12 @@
                 HasShadow="True">
                 <Label FontSize="Default" Text="Your Location" />
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="TapLocation" Tapped="TapLocation_Tapped"/>
+                    <TapGestureRecognizer x:Name="TapLocation" Tapped="TapLocation_Tapped" />
                 </Frame.GestureRecognizers>
 
             </Frame>
             <ImageButton
+                Clicked="ImageButton_Clicked"
                 HeightRequest="30"
                 HorizontalOptions="EndAndExpand"
                 Source="searchweather.png"

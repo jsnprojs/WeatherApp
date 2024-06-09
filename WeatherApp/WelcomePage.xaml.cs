@@ -6,4 +6,9 @@ public partial class WelcomePage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void BtnGetStarted_Clicked(object sender, EventArgs e)
+    {
+		Navigation.PushModalAsync(new WeatherPage());
+    }
 }

@@ -24,6 +24,7 @@
                 BackgroundColor="#ffca28"
                 WidthRequest="250"
                 Margin="0,50,0,0"
-                x:Name="BtnGetStarted"/>
+                x:Name="BtnGetStarted"
+                Clicked="BtnGetStarted_Clicked"/>
     </StackLayout>
 </ContentPage>
